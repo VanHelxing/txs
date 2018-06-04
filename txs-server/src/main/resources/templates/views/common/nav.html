@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <!-- #NAVIGATION -->
+    <!-- Left panel : Navigation area -->
+    <!-- Note: This width of the aside area can be adjusted through LESS/SASS variables -->
+    <aside id="left-panel">
+
+        <!-- User info -->
+        <div class="login-info">
+            <span> <!-- User image size is adjusted inside CSS, it should stay as is -->
+
+                <a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+                    <img th:src="@{smart-admin/img/avatars/4.png}" alt="me" class="online"/>
+                    <span th:text="${name}">
+                    </span>
+                </a>
+
+            </span>
+        </div>
+        <!-- end user info -->
+
+        <!-- NAVIGATION : This navigation is also responsive
+
+        To make this navigation dynamic please make sure to link the node
+        (the reference to the nav > ul) after page load. Or the navigation
+        will not initialize.
+        -->
+        <nav>
+            <!--
+            NOTE: Notice the gaps after each icon usage <i></i>..
+            Please note that these links work a bit different than
+            traditional href="" links. See documentation for details.
+            -->
+
+            <ul>
+                <li class="">
+                    <a href="#"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">系统状态</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-lg fa-fw fa-android"></i> <span class="menu-item-parent">基础信息</span></a>
+                    <ul>
+                        <li>
+                            <a href="base/branch">机构管理</a>
+                        </li>
+                        <li>
+                            <a href="base/department">部门管理</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-lg fa-fw fa-wrench"></i> <span class="menu-item-parent">系统管理</span></a>
+                    <ul>
+                        <li>
+                            <a href="#">权限管理</a>
+                            <ul>
+                                <li>
+                                    <a href="system/security/user">用户管理</a>
+                                </li>
+                                <li>
+                                    <a href="system/security/session">会话管理</a>
+                                </li>
+                                <li>
+                                    <a href="system/security/role">角色管理</a>
+                                </li>
+                                <li>
+                                    <a href="system/security/resource">资源管理</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">字典管理</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+
+        <span class="minifyme" data-action="minifyMenu"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+
+    </aside>
+    <!-- END NAVIGATION -->
+</html>

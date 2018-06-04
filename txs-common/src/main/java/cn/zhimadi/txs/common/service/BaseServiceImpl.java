@@ -21,9 +21,9 @@ import java.util.List;
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
     /**
-     * Get dao base dao.
+     * Get cn.zhimadi.txs.monitor.dao base cn.zhimadi.txs.monitor.dao.
      *
-     * @return the base dao
+     * @return the base cn.zhimadi.txs.monitor.dao
      * @author : yangjunqing / 2018-06-01
      */
     abstract protected BaseDao<T> getDao();
@@ -116,7 +116,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
     /**
      * Save s.
      *
-     * @param entity the entity
+     * @param entity the cn.zhimadi.txs.monitor.entity
      * @return the s
      * @author : yangjunqing / 2018-06-01
      */
@@ -128,7 +128,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
     /**
      * Save and flush t.
      *
-     * @param entity the entity
+     * @param entity the cn.zhimadi.txs.monitor.entity
      * @return the t
      * @author : yangjunqing / 2018-06-01
      */
@@ -187,7 +187,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
     /**
      * Delete.
      *
-     * @param entity the entity
+     * @param entity the cn.zhimadi.txs.monitor.entity
      * @author : yangjunqing / 2018-06-01
      */
     @Override

@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Table(name = "txs_user_role")
 public class UserRole extends BaseEntity {
 
+    private static final long serialVersionUID = 3011726861277895595L;
     /**
      * 用户编号
      */

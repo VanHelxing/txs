@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <div th:fragment="js">
+        <!-- #PLUGINS -->
+        <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+        <script th:src="@{smart-admin/js/libs/jquery-2.1.1.js}"></script>
+
+        <script th:src="@{smart-admin/js/libs/jquery-ui-1.10.3.min.js}"></script>
+
+        <!-- IMPORTANT: APP CONFIG -->
+        <script th:src="@{smart-admin/js/app.config.js}"></script>
+
+        <!-- BOOTSTRAP JS -->
+        <script th:src="@{smart-admin/js/bootstrap/bootstrap.min.js}"></script>
+
+        <!-- JARVIS WIDGETS -->
+        <script th:src="@{smart-admin/js/smartwidgets/jarvis.widget.min.js}"></script>
+
+        <!-- sobox -->
+        <script th:src="@{resource/js/sobox/jquery.sobox.js}"></script>
+
+        <!--[if IE 8]>
+        <h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+        <![endif]-->
+
+        <!-- MAIN APP JS FILE -->
+        <script th:src="@{smart-admin/js/app.js}"></script>
+    </div>
+</html>

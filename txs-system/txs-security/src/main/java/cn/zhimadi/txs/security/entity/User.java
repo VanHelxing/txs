@@ -17,6 +17,7 @@ import java.util.Set;
 @Table(name = "txs_user")
 public class User extends BaseEntity {
 
+    private static final long serialVersionUID = -8811866642682161237L;
     /**
      * 用户名称
      */

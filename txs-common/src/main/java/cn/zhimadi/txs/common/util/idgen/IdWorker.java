@@ -9,7 +9,7 @@ import java.util.Random;
  * 来自于twitter项目snowflake的id产生方案，全局唯一，时间有序。
  * 64位ID (42(毫秒)+5(机器ID)+5(业务编码)+12(重复累加))
  * https://github.com/twitter/snowflake/blob/scala_28/src/main/
- * 		scala/com/twitter/service/snowflake/IdWorker.scala
+ * 		scala/com/twitter/cn.zhimadi.txs.monitor.service/snowflake/IdWorker.scala
  */
 public class IdWorker {
 	

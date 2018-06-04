@@ -1,0 +1,47 @@
+/* --- DataTable start ---*/
+th, td {
+    white-space: nowrap;
+}
+
+#data-table tr td:first-child {
+    text-align: center;
+}
+
+#data-table tr td:first-child:before {
+    content: "\f096"; /* fa-square-o */
+    font-family: FontAwesome;
+}
+
+#data-table tr.selected td:first-child:before {
+    content: "\f046"; /* fa-check-square-o */
+}
+
+.dt-toolbar-footer>:last-child .DTTT, .dt-toolbar-footer>:last-child .dataTables_filter>:only-child, .dt-toolbar-footer>:last-child .dataTables_length, .dt-toolbar-footer>:last-child .pagination {
+    margin-top: 4px;
+}
+
+/* --- DataTable end ---*/
+
+/* --- modal start ---*/
+#modal-container {
+    background-color: #efeff0;
+}
+
+@media (min-width: 1170px) {
+    #modal-container {
+        width: 120%;
+        margin-left: -2%;
+    }
+}
+
+@media (min-width: 1170px) {
+    #modal-content {
+        margin-top: 150px;
+    }
+}
+
+#modal-content {
+    box-shadow: none;
+    border-bottom: none;
+}
+/* --- modal start ---*/

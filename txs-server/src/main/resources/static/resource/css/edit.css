@@ -1,0 +1,23 @@
+.edit-container {
+    padding: 20px;
+}
+#scroll {
+    margin: -5px 5% auto 5%;
+    overflow-y: scroll;
+    max-height: 200px;
+}
+.smart-form input.error {
+    border: 1px solid red;
+  }
+
+label.error {
+    padding-left: 16px;
+
+    padding-bottom: 2px;
+
+    font-weight: bold;
+
+    color: #EA5200;
+}
+label.checked {
+}

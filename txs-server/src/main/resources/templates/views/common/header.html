@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <!-- #HEADER -->
+    <header id="header">
+        <div id="logo-group">
+
+            <!-- PLACE YOUR LOGO HERE -->
+            <span id="logo"> <img th:src="@{smart-admin/img/logo.png}" alt="FlyYa"> </span>
+            <!-- END LOGO PLACEHOLDER -->
+        </div>
+
+        <!-- #TOGGLE LAYOUT BUTTONS -->
+        <!-- pulled right: nav area -->
+        <div class="pull-right">
+
+            <!-- collapse menu button -->
+            <div id="hide-menu" class="btn-header pull-right">
+                    <span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i
+                            class="fa fa-reorder"></i></a> </span>
+            </div>
+            <!-- end collapse menu -->
+
+            <!-- logout button -->
+            <!-- spring security 的logout方法是post类型,这里需要修改 -->
+            <div id="logout" class="btn-header transparent pull-right">
+                <span>
+                    <form th:action="@{/logout}" method="post" title="退出" data-action="userLogout" data-logout-msg="您确定要退出当前登陆吗？">
+                        <button type="submit">退出</button>
+                    </form>
+                </span>
+                <!--<span> <a th:href="@{/logout}" title="退出" data-action="userLogout" data-logout-msg="您确定要退出当前登陆吗？"><i
+                            class="fa fa-sign-out"></i></a> </span>-->
+            </div>
+            <!-- end logout button -->
+
+            <!-- fullscreen button -->
+            <div id="fullscreen" class="btn-header transparent pull-right">
+                    <span> <a href="javascript:void(0);" data-action="launchFullscreen" title="Full Screen"><i
+                            class="fa fa-arrows-alt"></i></a> </span>
+            </div>
+            <!-- end fullscreen button -->
+
+        </div>
+        <!-- end pulled right: nav area -->
+
+    </header>
+    <!-- END HEADER -->
+</html>

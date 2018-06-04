@@ -9,4 +9,12 @@ import cn.zhimadi.txs.security.entity.User;
  * @version : 1.0
  */
 public interface UserService extends BaseService<User> {
+
+    /**
+     * 用过用户名称查询用户信息
+     *
+     * @return the user
+     * @author : yangjunqing / 2018-06-04
+     */
+    public User findByUserName(String userName);
 }

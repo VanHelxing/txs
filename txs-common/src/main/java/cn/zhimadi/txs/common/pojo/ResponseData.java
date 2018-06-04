@@ -13,6 +13,7 @@ import java.util.Map;
 @Data
 public class ResponseData implements Serializable {
 
+    private static final long serialVersionUID = 7990154410762171509L;
     /** 响应代码 */
     private String code;
 

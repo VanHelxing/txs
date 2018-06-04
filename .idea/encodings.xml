@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/txs-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/txs-system" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/txs-system/txs-dict" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/txs-system/txs-monitor" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/txs-system/txs-security" charset="UTF-8" />
   </component>
 </project>

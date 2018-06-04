@@ -15,6 +15,7 @@
     <modules>
         <module>txs-security</module>
         <module>txs-dict</module>
+        <module>txs-monitor</module>
     </modules>
 
     <artifactId>txs-system</artifactId>

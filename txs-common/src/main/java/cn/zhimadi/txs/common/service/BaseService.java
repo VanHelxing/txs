@@ -85,7 +85,7 @@ public interface BaseService<T> {
      * Save s.
      *
      * @param <S>    the type parameter
-     * @param entity the entity
+     * @param entity the cn.zhimadi.txs.monitor.entity
      * @return the s
      * @author : yangjunqing / 2018-06-01
      */
@@ -94,7 +94,7 @@ public interface BaseService<T> {
     /**
      * Save and flush t.
      *
-     * @param entity the entity
+     * @param entity the cn.zhimadi.txs.monitor.entity
      * @return the t
      * @author : yangjunqing / 2018-06-01
      */
@@ -139,7 +139,7 @@ public interface BaseService<T> {
     /**
      * Delete.
      *
-     * @param entity the entity
+     * @param entity the cn.zhimadi.txs.monitor.entity
      * @author : yangjunqing / 2018-06-01
      */
     void delete(T entity);
