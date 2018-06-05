@@ -103,6 +103,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         //解决不允许显示在iframe的问题
         http.headers().frameOptions().disable();
+
+        //暂时解决POST请求403
+        http.csrf().disable();
     }
 
 }

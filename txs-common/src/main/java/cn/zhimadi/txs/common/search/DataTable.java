@@ -60,8 +60,8 @@ public class DataTable implements Serializable {
         } else if ("asc".equals(sortOrder)) {
             sort = new Sort(Direction.ASC, sortName);
         }
-        //return new PageRequest(start / length, length, sort); //已过期的方法
-        return PageRequest.of(start / length, length, sort);
+        return new PageRequest(start / length, length, sort); //已过期的方法
+//        return PageRequest.of(start / length, length, sort);
     }
 
     /* (non-Javadoc)

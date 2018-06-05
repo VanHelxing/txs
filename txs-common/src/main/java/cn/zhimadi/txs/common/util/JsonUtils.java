@@ -20,6 +20,9 @@ public class JsonUtils {
      * @return
      */
     public static String objectToJson(Object obj) throws JsonProcessingException {
+        if (obj == null){
+            return "";
+        }
         String json = objectMapper.writeValueAsString(obj);
         return json;
     }

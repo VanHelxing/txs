@@ -13,7 +13,7 @@ import lombok.Data;
 public class UserDTO extends BaseDTO {
 
     /** 用户名 */
-    private String username;
+    private String userName;
 
     /** 用户口令 */
     private String password;
