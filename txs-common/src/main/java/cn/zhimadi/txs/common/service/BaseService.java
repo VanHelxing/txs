@@ -1,5 +1,7 @@
 package cn.zhimadi.txs.common.service;
 
+import cn.zhimadi.txs.common.search.DataTable;
+import cn.zhimadi.txs.common.search.SearchResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -16,6 +18,16 @@ import java.util.List;
  */
 public interface BaseService<T> {
 
+
+    /**
+     * for datatables
+     *
+     * @param dataTable
+     * @param clazz     the clazz
+     * @return data table response
+     * @author : mingweigao / 2017-04-04
+     */
+    SearchResponse<T> findAll(DataTable dataTable, Class<T> clazz);
 
     /**
      * Find all list.

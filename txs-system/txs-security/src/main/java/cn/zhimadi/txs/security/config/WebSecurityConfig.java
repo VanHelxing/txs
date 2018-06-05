@@ -20,8 +20,6 @@ import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
-import org.springframework.security.web.session.SessionInformationExpiredStrategy;
-import org.springframework.security.web.session.SimpleRedirectSessionInformationExpiredStrategy;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 import javax.sql.DataSource;
@@ -29,6 +27,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 @EnableRedisHttpSession
+//@EnableGlobalMethodSecurity  //开启方法级别安全@Secured @PreAuthorize / @PostAuthorize
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -83,6 +82,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .addFilterBefore(customFilterSecurityInterceptor, FilterSecurityInterceptor.class) //注入自定义的过滤器实现权限验证
             .authorizeRequests()
+            .antMatchers("/**").permitAll() //所有的请求都不需要验证,正式发布时请注释
             .antMatchers(Constants.FILTER_AUTHENTICATED_PATH).permitAll() //不需要验证的路径
             .anyRequest().authenticated()
             .and()

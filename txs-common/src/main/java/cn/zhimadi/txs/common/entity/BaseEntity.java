@@ -23,6 +23,8 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     /** 唯一ID */
     @Id
     @GenericGenerator(name = "twitter-id", strategy = "cn.zhimadi.txs.common.pojo.TwitterIdGennerate")

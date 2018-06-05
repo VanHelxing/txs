@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
     <!-- #NAVIGATION -->
     <!-- Left panel : Navigation area -->
     <!-- Note: This width of the aside area can be adjusted through LESS/SASS variables -->
@@ -10,8 +11,8 @@
             <span> <!-- User image size is adjusted inside CSS, it should stay as is -->
 
                 <a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
-                    <img th:src="@{smart-admin/img/avatars/4.png}" alt="me" class="online"/>
-                    <span th:text="${name}">
+                    <img th:src="@{smart-admin/img/avatars/2.png}" alt="me" class="online"/>
+                    <span sec:authentication="name">
                     </span>
                 </a>
 

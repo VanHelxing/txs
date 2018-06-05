@@ -1,10 +1,299 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>用户列表</title>
+    <title>用户</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{resource/css/default.css}">
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/smartadmin-production-plugins.min.css}">
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/smartadmin-production.min.css}">
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/smartadmin-skins.min.css}">
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/smartadmin-rtl.min.css}">
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{resource/js/sobox/style.css}">
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/demo.min.css}">
 </head>
 <body>
-    <pre th:text="${response_data}"></pre>
+    <div class="row">
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+            <h1 class="page-title col-sm-7 col-md-7 col-lg-4">
+                <i class="fa fa-lg fa-fw fa-home"></i>
+                <span th:text="${moduleName}"></span>
+                <span th:text="${entityMessage}"></span>
+                <span th:text="${entityMessage}"></span>
+            </h1>
+        </div>
+    </div>
+
+    <!-- widget grid -->
+    <section id="widget-grid" class="">
+
+        <!-- row -->
+        <div class="row">
+            <!-- NEW WIDGET START -->
+            <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                <!-- Widget ID (each widget will need unique ID)-->
+                <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false" data-widget-deletebutton="false">
+                    <header>
+                        <div class="jarviswidget-ctrls oprate-box" style="float: left" data-placement="left" role="menu">
+                            <a id="create" class="btn btn-sm" rel="tooltip" title="">
+                                新增
+                            </a>
+                            <a href="javascript:void(0);" id="update" class="btn btn-sm" rel="tooltip" title="">
+                                更新
+                            <a href="javascript:void(0);" id="delete" class="btn btn-sm" rel="tooltip" title="">
+                                删除
+                            </a>
+                            <a href="javascript:void(0);" id="refresh" class="btn btn-sm" rel="tooltip" title="">
+                                刷新
+                            </a>
+                        </div>
+                    </header>
+
+                    <!-- widget div-->
+                    <div>
+                        <!-- widget content -->
+                        <div class="widget-body no-padding">
+
+                            <table id="data-table"
+                                   class="display projects-table table table-striped table-bordered table-hover"
+                                   cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th><input type="checkbox" id="select_all"/></th>
+                                    <th>序号</th>
+                                    <th>用户名称</th>
+                                    <th>是否启用</th>
+                                    <th>创建时间</th>
+                                    <th>更新时间</th>
+                                </tr>
+                                </thead>
+                            </table>
+
+                        </div>
+                        <!-- end widget content -->
+                    </div>
+                    <!-- end widget div -->
+                </div>
+                <!-- end widget -->
+            </article>
+            <!-- WIDGET END -->
+        </div>
+        <!-- end row -->
+
+    </section>
+    <!-- end widget grid -->
+
+    <!-- MODAL PLACE HOLDER -->
+    <div id="modal" class="modal fade" role="dialog" aria-labelledby="modal-label"
+         data-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div id="modal-container">
+                <div class="modal-content" id="modal-content">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        取消</button>
+                    <button type="button" class="btn btn-primary" id="btn-submit">
+                        确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MODAL -->
+
+    <script type="text/javascript" th:inline="javascript">
+
+        pageSetUp();
+        loadScript("smart-admin/js/plugin/jquery-form/jquery-form.min.js");
+        loadScript("smart-admin/js/plugin/jquery-validate/jquery.validate.min.js");
+        loadScript("resource/js/default.js");
+        // pagefunction
+        var pagefunction = function () {
+
+            var selected = [];
+            // clears the variable if left blank
+            // var table = $('#data-table').DataTable({
+            //     "columnDefs": [
+            //         {
+            //             "targets": [1],
+            //             "visible": false,
+            //             "searchable": false
+            //         }
+            //     ],
+            //     "language": {
+            //         "url": "resource/Chinese.json",
+            //     },
+            //     "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6 hidden-xs'f><'col-sm-6 col-xs-12 hidden-xs'<'toolbar'>>r>" +
+            //     "t" +
+            //     "<'dt-toolbar-footer'<'col-sm-4 col-xs-12 hidden-xs'i><'col-sm-4 col-xs-12'p><'col-sm-4 col-xs-12 hidden-xs'l>>",
+            //     "sPaginationType": "full_numbers",
+            //     "serverSide": true,
+            //     "ajax": {
+            //         "url": "http://localhost:8080/system/security/user/list",
+            //         "type": "POST",
+            //     },
+            //
+            //     "bDestroy": true,
+            //     "iDisplayLength": 10,
+            //     "columns": [
+            //         {data: "", defaultContent: '', orderable: false, width: '5%'},
+            //         {data: "id"},
+            //         {data: "username"},
+            //         {data: "status"},
+            //         {data: "createDate", searchable: false},
+            //         {data: "updateDate", searchable: false},
+            //     ],
+            //     "preDrawCallback": function () {
+            //         $("#select_all").attr("checked", false);
+            //         selected = [];
+            //     },
+            // });
+
+            //选择条目
+            $('#data-table tbody').unbind('click').on('click', 'tr', function () {
+                //Get the row index of the row column.
+                var idx = table.row(this).index();
+                //获取id的值
+                var id = table.cell(idx, 1).data();
+                //判断id是否已经在selected中
+                var index = $.inArray(id, selected);
+
+                if (index === -1) {
+                    selected.push(id);
+                } else {
+                    //从数组中删除索引id
+                    selected.splice(index, 1);
+                }
+                $(this).toggleClass('selected');
+            });
+            //全选按钮
+            $("#select_all").unbind('click').click(function () {
+                if (this.checked) {
+                    $("tr").addClass('selected');
+                    $("#data-table tbody").find("tr").each(function () {
+                        var idx = table.row(this).index();
+                        var id = table.cell(idx, 1).data();
+
+                        var index = $.inArray(id, selected);
+                        if (index === -1) {
+                            selected.push(id);
+                        }
+                    });
+                } else {
+                    $("tr").removeClass('selected');
+                    $("#data-table tbody").find("tr").each(function () {
+                        var idx = table.row(this).index();
+                        var id = table.cell(idx, 1).data();
+
+                        var index = $.inArray(id, selected);
+                        selected.splice(index, 1);
+                    });
+                }
+            });
+
+            //重新加载
+            $("#refresh").unbind('click').click(function () {
+                var myLoading = $.sobox.loading({
+                    cls: 'so-loading', // 默认添加私有样式为 so-loading
+                    stayTime: 0 // 小等于0时不自动关闭，默认值为0采用手动关闭
+                });
+                return false;
+            });
+
+            //添加
+            $("#create").unbind('click').click(function () {
+                createFunction("#modal", "${entityPath}/create")
+                $("#btn-submit").unbind().click(function () {
+                    save();
+                })
+            });
+
+            //更新
+            $("#update").unbind('click').click(function () {
+                updateFunction("#modal", "${entityPath}/update", selected);
+                $("#btn-submit").unbind().click(function () {
+                    save();
+                })
+            });
+            //删除
+            $("#delete").click(function () {
+                deleteFunction("#modal", "${entityPath}/delete", selected);
+            });
+
+            function save() {
+                var errorClass = 'invalid';
+                var errorElement = 'em';
+
+                var $checkoutForm = $('#data-form').validate({
+                    errorClass: errorClass,
+                    errorElement: errorElement,
+                    highlight: function (element) {
+                        $(element).parent().removeClass('state-success').addClass("state-error");
+                        $(element).removeClass('valid');
+                    },
+                    unhighlight: function (element) {
+                        $(element).parent().removeClass("state-error").addClass('state-success');
+                        $(element).addClass('valid');
+                    },
+                    rules: {
+                        username: {
+                            required: true,
+                            minlength: 4
+                        },
+                        password: {
+                            required: true,
+                            minlength: 6,
+                        },
+                        confirmPassword: {
+                            required: true,
+                            minlength: 6,
+                            equalTo: '#password'
+                        }
+                    },
+                    messages: {
+                        username: {
+                            required: '<spring:message code="security.user.username.valid.null"/>',
+                            minlength: '<spring:message code="security.user.username.valid.length"/>'
+                        },
+                        password: {
+                            required: '<spring:message code="security.user.password.valid.null"/>',
+                            minlength: '<spring:message code="security.user.password.valid.length"/>'
+                        },
+                        confirmPassword: {
+                            required: '<spring:message code="security.user.confirmPassword.valid.null"/>',
+                            equalTo: '<spring:message code="security.user.confirmPassword.valid.equal"/>'
+                        }
+                    },
+                    // Do not change code below
+                    errorPlacement: function (error, element) {
+                        error.insertAfter(element.parent());
+                    }
+                });
+                if ($checkoutForm.form()) {
+                    ajaxSave()
+                }
+            }
+        };
+
+        // end destroy
+        var pagedestroy = function () {
+
+        }
+        // load related plugins
+        loadScript("smart-admin/js/plugin/datatables/jquery.dataTables.min.js", function () {
+            loadScript("smart-admin/js/plugin/datatables/dataTables.colVis.min.js", function () {
+                loadScript("smart-admin/js/plugin/datatables/dataTables.tableTools.min.js", function () {
+                    loadScript("smart-admin/js/plugin/datatables/dataTables.bootstrap.min.js", function () {
+                        loadScript("smart-admin/js/plugin/datatable-responsive/datatables.responsive.min.js", pagefunction);
+                    });
+                });
+            });
+        });
+
+
+    </script>
+
 </body>
 </html>

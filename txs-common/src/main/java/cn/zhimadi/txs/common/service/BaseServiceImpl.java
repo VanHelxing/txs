@@ -1,7 +1,11 @@
 package cn.zhimadi.txs.common.service;
 
 import cn.zhimadi.txs.common.dao.BaseDao;
+import cn.zhimadi.txs.common.search.DataTable;
+import cn.zhimadi.txs.common.search.DataTableSpecification;
+import cn.zhimadi.txs.common.search.SearchResponse;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
@@ -19,6 +23,22 @@ import java.util.List;
 @Transactional
 @Service
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
+
+    /**
+     * for datatables
+     *
+     * @param dataTable
+     * @param clazz     the clazz
+     * @return data table response
+     * @author : mingweigao / 2017-04-04
+     */
+    @Override
+    public SearchResponse<T> findAll(DataTable dataTable, Class<T> clazz) {
+        Specification<T> spec = DataTableSpecification.buildGlobalSpec(dataTable, clazz);
+        PageRequest pageRequest = dataTable.buildPageRequest();
+        Page<T> page = findAll(spec, pageRequest);
+        return new SearchResponse<T>(page.getTotalElements(), page.getTotalElements(), page.getContent());
+    }
 
     /**
      * Get cn.zhimadi.txs.monitor.dao base cn.zhimadi.txs.monitor.dao.
