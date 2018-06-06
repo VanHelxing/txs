@@ -82,7 +82,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .addFilterBefore(customFilterSecurityInterceptor, FilterSecurityInterceptor.class) //注入自定义的过滤器实现权限验证
             .authorizeRequests()
-            .antMatchers("/**").permitAll() //所有的请求都不需要验证,正式发布时请注释
+//            .antMatchers("/**").permitAll() //所有的请求都不需要验证,正式发布时请注释
             .antMatchers(Constants.FILTER_AUTHENTICATED_PATH).permitAll() //不需要验证的路径
             .anyRequest().authenticated()
             .and()

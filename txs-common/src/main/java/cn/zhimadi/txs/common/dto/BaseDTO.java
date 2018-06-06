@@ -22,30 +22,34 @@ public class BaseDTO implements Serializable {
     private String orgId;
 
     /** 创建时间 */
-    private Date createTime;
+    private Date createDate;
 
     /** 修改时间 */
-    private Date updateTime;
+    private Date updateDate;
 
-    /** 状态 */
+    /**
+     * 用户状态
+     */
     private String status;
 
-    /** 是否启用 */
+    /**
+     * 是否启用
+     */
     protected Integer state;
-
-    /** 是否启用 */
+    /**
+     * 是否启用
+     */
     private Boolean enable;
 
-
-    protected Boolean enable(){
-        return getState() == 1;
+    protected Boolean enable() {
+        return getState() == 0;
     }
 
-    public String getStatus(){
-        return getState() == 1 ? "是" : "否";
+    public String getStatus() {
+        return getState() == 0 ? "是" : "否";
     }
 
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status;
     }
 }

@@ -17,3 +17,928 @@
  * - BODY
  * - CUSTOM STYLES
  */
+ ul{
+ 	list-style: none;
+ }
+ .centers{
+ 	text-align: center;
+ }
+ .smart-form .inlineBlock,.smart-form label.inlineBlock{
+ 	display: inline-block;
+ }
+.smart-form .btn{
+ 	padding: 6px 8px;
+ }
+.projects-table,.logiInfo-box table.table,.output-goods-info table.table,.logistics-orderInfo table.table{
+ 	display: block;
+ }
+ /*日历选择部分*/
+ .ui-datepicker{
+ 	background: #fff;
+ 	width: 160px;
+ }
+ .datepicker-dropdown{
+ 	width: 160px;
+ }
+ .table-condensed{
+ 	width: 150px;
+ }
+ .datepicker table tr td, .datepicker table tr th{
+ 	padding: 5px 0;
+ }
+ td.day{
+ 	font-weight: bold;
+ }
+ td.old.day,td.new.day{
+ 	font-weight: normal;
+ }
+ .searchParam{
+    height: 32px;
+    text-indent: 4px;
+ }
+ #search-box .btn{
+ 	vertical-align: top;
+ }
+ .jarviswidget{
+ 	margin: 10px 0 30px;
+ }
+ #supplier,#warehouse,#state,.selectBtn{
+ 	height: 32px
+ }
+#search-box {
+    padding: 10px 4px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    margin-bottom: 5px;
+}
+#search-box>input{
+	margin: 0 0 5px;
+}
+.addBtn{
+	background: #5CB95C;
+	border: 1px solid #4CB04C;
+	color: #fff;
+}
+.addBtn:hover,.addBtn:active,.addBtn:visited{
+	background: #53A753 !important;
+	border: 1px solid #4B964B !important;
+	color: #fff !important;
+}
+.delBtn{
+	background: #DA524E;
+	border: 1px solid #D53D37;
+	color: #fff;
+}
+.delBtn:hover,.delBtn:active,.delBtn:visited{
+	background: #C44A46 !important;
+	border: 1px solid #B0433F !important;
+	color: #fff !important;
+}
+ .page-footer{
+ 	position: fixed;
+ 	z-index: 4;
+ }
+ .jarviswidget-ctrls a.btn{
+ 	padding:0 8px;
+ }
+/*  .jarviswidget>header{
+	height: 44px;
+	padding: 4px 0;
+} */
+/*  .jarviswidget-ctrls a:first-child{
+	border-left: 0;
+} */
+ /*表格调整*/
+ .dataTables_wrapper .projects-table{
+ 	margin-top: 0 !important;
+ }
+ .projects-table thead,.logiInfo-box table.table thead,.output-goods-info table.table thead,.logistics-orderInfo table.table thead{
+	width: 100%;
+ }
+ .projects-table thead,.projects-table tbody,.logiInfo-box table.table thead,.logiInfo-box table.table tbody,.output-goods-info table.table thead,.output-goods-info table.table tbody,.logistics-orderInfo table.table thead,.logistics-orderInfo table.table tbody{
+ 	display: flex;
+ 	display: -webkit-flex;
+ }
+ .projects-table tbody,.logiInfo-box table.table tbody,.output-goods-info table.table tbody,.logistics-orderInfo table.table tbody
+ {
+ 	align-items: center;
+    flex-direction: column;
+ }
+ .projects-table tr,.logiInfo-box table.table tr,.output-goods-info table.table tr ,.logistics-orderInfo table.table tr{
+ 	width: 100%;
+ 	display: flex;
+ 	display: -webkit-flex;
+ 	align-items: center;
+ 	flex-wrap: nowrap;
+ }
+ .projects-table tr th,.projects-table tr td,.logiInfo-box table.table tr th,.logiInfo-box table.table tr td,.output-goods-info table.table tr th,.output-goods-info table.table tr td,.logistics-orderInfo table.table tr th,.logistics-orderInfo table.table tr td{
+ 	border-top: 0;
+    flex-grow: 1;
+    width: 100% !important;
+    text-align: center;
+    padding: 8px 0 !important;
+ }
+ .projects-table tr th,.logiInfo-box table.table tr th,.output-goods-info table.table tr th,.logistics-orderInfo table.table tr th{
+	text-indent: -6px
+  }
+ .projects-table tr th:first-child,.projects-table tr td:first-child,.logistics-orderInfo table.table tr th:first-child,.logistics-orderInfo table.table tr td:first-child{
+ 	width: 30% !important;
+ 	text-indent: 0;
+ }
+ .projects-table tr td,.logiInfo-box table.table tr td,.output-goods-info table.table tr td,.logistics-orderInfo table.table tr td{
+ 	overflow-x: scroll;
+ }
+ /*隐藏表格导航*/
+ td::-webkit-scrollbar {
+  	display:none
+  }
+  .logistics-orderInfo table.table tr th{
+  	border-left: 0;
+  }
+  .logiInfo-box table.table tr td input{
+  	width: 90%;
+  }
+  .output-goods-info table.table tr td input{
+	width: 85%;
+  }
+ div.output-goods-info tr th:first-child,div.output-goods-info tr td:first-child{
+ 	width: 150% !important;
+ 	text-indent: 0;
+ }
+ div.output-goods-info tr:first-child td:first-child>div{
+ 	height: 24px;
+ 	width: 100%;
+ }
+  div.output-goods-info tbody#details tr:first-child{
+  	position: relative;
+  }
+ div.output-goods-info tr:first-child td:first-child input{
+    width: 60%;
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 3px;
+    vertical-align: top;
+    box-sizing: border-box;
+ }
+  div.output-goods-info tr:first-child td:first-child a.btn {
+	font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    padding: 0px 3px;
+    width: 26%;
+    vertical-align: top;
+    box-sizing: border-box;
+    margin-left: 4%;
+  }
+ table.dataTable thead>tr>th.sorting_disabled{
+ 	padding-right: 0 !important; 
+ }
+ table.dataTable tfoot>tr>th, table.dataTable thead>tr>th{
+ 	padding-left: 0 !important;
+ }
+ table.dataTable thead>tr>th input[type=checkbox], input[type=radio]
+ {
+	margin: 0;
+ }
+ .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+ 	height: 18px;
+ }
+ /*盘点库存*/
+.check-inventory{
+	width: 80%;
+	display: inline-block;
+}
+.check-inventory fieldset{
+	padding: 0;
+} 
+.check-inventory fieldset .row{
+	width: 100% !important;
+} 	
+.check-inventory .col-2{
+	width: 33.3% !important;
+} 
+.check-inventory fieldset .row section{
+	margin-bottom: 5px;
+}
+.check-inventory fieldset .row section label{
+	margin-bottom: 0;
+}
+.check-list-box{
+	padding: 15px 2% 10px !important;
+	font-size: 0 !important;
+	border-width: 1px;
+	border: 1px solid #ccc !important;
+	background: #fff;
+}
+.check-list-btns{
+	width: 16%;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+}
+.check-list-btns a{
+	width: 100%;
+	margin: 0 auto 8px;
+	text-align: center;
+}
+/*logo调整*/
+#logo-group>span{
+	height: 43px;
+}
+#logo{
+	width: 246px;
+    margin-top: 4px;
+}
+#logo img{
+	width: 200px;
+}
+.systemInfo table.projects-table{
+	display: table;
+}
+.systemInfo table.projects-table tr{
+	display: table-row;
+}
+.systemInfo table.projects-table tr th, .systemInfo table.projects-table tr td,.systemInfo table.projects-table tr th table td, .systemInfo table.projects-table tr td table td{
+	width: auto !important;
+	padding: 8px 10px;
+}
+.systemInfo.projects-table thead, .systemInfo.projects-table tbody{
+	display:contents;
+}
+.systemInfo td{
+	height: auto !important;
+}
+.systemInfo .table-bordered>tbody>tr>td:first-child{
+	width: 12% !important;
+}
+/*header下的搜索框*/
+.dt-toolbar,#data-table_wrapper .dt-toolbar{
+    width: 20%;
+    float: right;
+	background: none;
+    border: 0;
+    padding: 0px;
+    position: absolute;
+    right: 60px;
+    top: -29px;        
+}        
+.dt-toolbar div.col-xs-12{
+	width: 100%;
+}
+.dt-toolbar div.col-xs-12 div.dataTables_filter input{
+	height: 24px;
+	padding: 4px;
+	margin-left: 4px;
+}
+/*表格按钮*/
+a.tableBtn{
+    height: 26px;
+    line-height: 14px;
+    display: inline-block;	
+    padding: 6px;
+    margin: 3px 4px 3px; 
+    background: #333;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 14px;	
+}
+a.tableBtn:hover{
+	background: #555;
+}
+.jarviswidget-ctrls {
+	font-size: 0;
+}
+.jarviswidget-ctrls a.btn-sm{
+    color: #333; 
+    line-height: 32px;
+    margin: 0;
+    padding: 0 10px !important;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: none;
+    font-weight: bold;	
+}
+.jarviswidget-ctrls a.btn-sm:hover{
+	background: #333;
+	color: #fff;
+}
+.jarviswidget-ctrls a.btn-sm:first-child{
+	border-left: 0;
+}
+/* .jarviswidget-ctrls a.btn-default{
+	background: #34495E;
+	border: 1px solid #46627E;
+}
+.jarviswidget-ctrls a.btn-default:hover{
+	background: #2A3A4B;
+}
+.jarviswidget-color-white>header>.oprate-box>a{
+	color: #fff !important;
+}
+.jarviswidget-color-white>header>.oprate-box>a.btn-sm:hover{
+	color: #fff !important;
+} */
+header div.widget-toolbar{
+	display:none; 
+}
+/*运单开单*/
+.basicInfo{
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 0 15px 0;
+}
+.basicInfo li{
+	font-size: 0;
+	display: inline-block;
+}
+.order-number{
+	width: 22%;
+}
+li.order-number label.label,li.order-number label.input,li.inputHead label.select{
+	display: inline-block;
+	font-size: 14px;
+}
+.target-place{
+	width: 43%;
+}
+li.order-number label,li.target-place label.label,li.warehouse label.label,li.shipping-method label.label{
+	width: auto;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 30px;
+	margin-bottom: 0;
+}
+li.target-place select.choose{
+	margin: 0 6px 0 0;
+}
+.warehouse,.shipping-method{
+	width: 17%;
+}
+li.warehouse label.select,li.shipping-method label.select{
+	width: 60%;
+}
+li.warehouse label.select,li.shipping-method label.select,li.target-place select.choose{
+	display: inline-block;
+	font-size: 14px;
+	line-height: 30px;
+	height: 30px;	
+}
+.send-receive-info{
+	font-size: 0;
+}
+.sendInfo,.receiveInfo{
+	width: 50%;
+	padding: 0;
+	font-size: 14px;
+	display: inline-block;
+	vertical-align: top;
+}
+ h2.title-box{
+	background: #3A3633;
+	line-height: 26px;
+	height: 26px;
+	font-size: 14px;
+}
+h2.title-box b{
+	color: mintcream;
+	margin-left: 20px;
+}
+.receiveInfo-contect,.sendInfo-contect{
+	width: 100%;
+	padding: 10px 0;
+	font-size: 0;
+	color: #333;
+}
+.sendInfo-contect{
+	border-right: 1px solid #eee;
+	box-sizing: border-box;
+}
+.receiveInfo-contect li,.sendInfo-contect li{
+	width: 92%;
+	padding: 0 4%;
+	margin-top: 8px;
+	font-size: 14px;
+}
+span.labs{
+	display: inline-block;
+	width: auto;
+}
+.sendInfo ul li label.select select,.receiveInfo ul li label.select select,.receiveInfo ul li label.input input{
+	display: inline-block;
+	width: 90%;
+}
+.sendInfo ul li label.select i,.receiveInfo ul li label.select i{
+	right: 20px;
+}
+li.halfbox{
+    width: 43%;
+    display: inline-block;
+    padding: 0 0 0 4%;
+}
+li.halfbox label.input{
+	display: inline-block;
+}
+.expense-box label.input input{
+	width: 65%;
+	display: inline-block;
+	margin: 10px 10px 10px 0;
+}
+.expense-box div.row,.remark-box div.row,.overTimeWarning-box div.row{
+	margin: 0;
+}
+.expense-box section.col,.remark-box section.col,.overTimeWarning-box section.col{
+	padding: 0;
+}
+.remark-box section.col{
+	width: 100%;
+}
+.remark-box section.col label.input{
+	text-align: center;
+}
+.remark-box section.col label.input textarea{
+	width: 95%;
+	margin: 10px auto;
+	height: 56px;
+	padding: 8px;
+	resize: none;
+}
+.logiInfo-box table.table{
+	box-sizing: border-box;
+}
+.logiInfo-box table.table tr{
+	border-bottom: 1px solid #ddd;
+}
+/*入库单创建*/
+.input-basic-info label.label{
+	width: auto;
+	display: inline-block;
+}
+.input-basic-info label.select{
+	width: 74%;
+	display: inline-block;
+}
+.input-info .sendInfo h2.title-box{
+	width: 200%;
+}
+.input-info .sendInfo .sendInfo-contect{
+	border-right: 0;
+}
+/*出库单创建*/
+.outInfo .sendInfo-contect li.halfbox{
+	width:44%;
+}
+.outInfo .sendInfo-contect li.halfbox label.input {
+    display: inline-block;
+    width: 62%;
+}
+.overTimeWarning-box section.col-3 label.input span.labs{
+    display: inline-block;
+    width: auto;
+}
+.overTimeWarning-box label.input input{
+	width: 60%;
+	display: inline-block;
+}
+.overTimeWarning-box div.row{
+	padding: 10px 0;
+}
+.overTimeWarning-box section.col{
+	margin-bottom: 0;
+}
+.output-goods-info h2.title-box{
+	height: 30px;
+	font-size: 0;
+}
+.output-goods-info h2.title-box>b{
+	font-size: 14px;
+	line-height: 30px;
+}
+.output-goods-info h2.title-box a.out-add-btn,.output-goods-info h2.title-box a.out-del-btn{
+    height: auto;
+    line-height: 12px;
+    font-size: 12px;
+    padding: 5px 6px;
+    margin: 3px 4px;
+    box-sizing: border-box;
+    vertical-align: top;
+    float: right;
+}
+.output-goods-info h2.title-box span.batch-quantity{
+	display: inline-block;
+	float: right;
+	color: #fff;
+	height: 22px;
+	line-height: 22px;
+	font-size: 14px;
+	margin: 3px 10px 0 0;
+}
+.output-goods-info h2.title-box span.batch-quantity b.nums{
+	color: #fff;
+	font-weight: normal;
+	margin:0;
+}
+.choose{
+    width: 100px;
+    margin-left: 10px;
+}
+#search{
+    text-align: center;
+}
+.autocomplete{
+    border: 1px solid #ccc;
+    text-align: left;
+    background: rgba(255,255,255,0.8);
+    color: #333;
+    overflow-x: hidden;    
+}
+.autocomplete li{
+    list-style-type: none;
+}
+.clickable {
+    cursor: default;
+}
+.highlight {
+    background-color: #9ACCFB;
+}
+/*派单开单*/
+fieldset.create-allot-Order{
+	font-size: 0;
+}
+div.allotReceiveInfo{
+	width: 100%;
+	font-size: 0;
+	margin: 10px auto;
+}
+div.allotReceiveInfo li{
+	display: inline-block;
+	font-size: 14px;
+	color: #333;
+	box-sizing: border-box;
+}
+div.allotReceiveInfo li.target-place{
+	font-size: 0;
+}
+div.allotReceiveInfo li.target-place select.choose{
+	width: 32%;
+	margin: 0 1% 0 0;
+	padding: 0;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+div.allotReceiveInfo li.allotBranch,div.allotReceiveInfo li.order-number{
+	width: 13%;
+	height: 30px;
+	vertical-align: top;
+	border-color: #a9a9a9;
+	margin-right: 1%;
+}
+div.allotReceiveInfo li.allotBranch:hover,div.allotReceiveInfo li.allotBranch #warehouse:hover{
+	border-color:#7f7f7f
+}
+div.allotReceiveInfo li.allotBranch #warehouse{
+	height: 30px;
+	border-color: #a9a9a9;
+}
+div.allotReceiveInfo li.allotBranch .select i{
+	height: 10px;
+}
+div.allotReceiveInfo li.order-number input{
+	width: 100%;
+	height: 30px;
+	box-sizing: border-box;
+	border: 1px solid #a9a9a9;
+	padding: 4px;
+}
+div.allotReceiveInfo li.order-number input:hover{
+	border-color: #7f7f7f;
+}
+div.allotReceiveInfo li.search-button{
+	width: 5%;
+	vertical-align: top;
+	margin-left: 1%;
+}
+div.allotReceiveInfo li.search-button input{
+	width: 100%;
+	height: 30px;
+	box-sizing: border-box;
+}
+/*创建派车单头部显示的信息*/
+div.allot-detail-info{
+	width: 98%;
+	min-height: 60px;
+	margin: 0 auto;
+	border: 1px solid #a9a9a9;
+	padding: 10px 1%;
+	color: #333;
+	font-size: 14px;
+}
+.allot-detail-info:hover{
+	border: 1px solid #7f7f7f;
+}
+.logistics-orderInfo,.allot-MoreInfo{
+	display: inline-block;
+	box-sizing: border-box;
+	vertical-align: top;
+}
+.logistics-orderInfo{
+	width: 70%;
+}
+.logistics-orderInfo table.table-bordered thead th,.logistics-orderInfo table.table-bordered tbody td{
+	text-align: center;
+}
+.allot-MoreInfo{
+	width: 29%;
+	margin: 0 0 20px 1%;
+}
+.allot-MoreInfo div.allotItems{
+	margin: 0 auto 20px;
+}
+.logistics-orderInfo{
+	font-size: 12px;
+}
+.allot-MoreInfo div.checkVolume{
+	margin: -8px auto 20px;
+}
+.checkVolume input.checks{
+	width: 100%;
+	height: 36px;
+	line-height: 36px;
+	font-size: 16px;
+	padding: 0;
+	text-align: center;
+	float: right;
+}
+.loadingRate-box,.loadingRate-main{
+	width: 100%;
+	margin: 0 auto;
+}
+.loadingRate-items{
+	width: 33.3%;
+	height: 36px;
+	display: inline-block;
+	background: #333;
+	margin: 0 0 12px 0;
+	font-size: 0;
+	box-sizing: border-box;
+	border: 1px solid #333;
+}
+.loadingRate-items label{
+	background: #fff;
+	width: 70px;
+	height: 34px;
+	line-height: 34px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	display: inline-block;
+	text-align: left;
+	vertical-align: top;
+	padding: 0 6px 0;
+}
+.loadingRate-items p{
+	font-size: 14px;
+	color: #fff;
+	line-height: 34px;
+	height: 34px;
+	display: inline-block;
+	text-align: left;
+	vertical-align: top;
+	padding: 0 6px 0;
+}
+#selectedOrder{
+	font-size: 0;
+	display: none;
+}
+#selectedOrder ul,#selectedOrder ul li,#selectedOrder label{
+	display: inline-block;
+	font-size: 14px
+}
+#selectedOrder label{
+	font-weight: bold;
+}
+#selectedOrder ul li{
+	list-style: none;
+	width: auto;
+	height: 20px;
+	line-height: 20px;
+	margin-right: 8px;
+}
+#selectedOrder ul li i.fa{
+	cursor: pointer;
+    font-size: 18px;
+    font-weight: normal;
+    color: red;	
+}
+/*提示弹窗*/
+.tipsWinWrap{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 99999999;
+	background: rgba(0, 0, 0, 0.5)	;
+	display: none;
+}
+.tipsWindow{
+	width: 320px;
+	height: auto;
+	padding:  0 0 10px;
+	background: #fff;
+	border-radius: 3px;
+	color: #333;
+	/* border: 1px solid #ddd; */
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	top: 30%;
+	}
+h3.tipsTitle{
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	padding: 0 10px;
+	font-size: 16px;
+	position: relative;
+	background: #3A3633;
+	color: #fff;
+	border-radius: 3px 3px 0 0;
+	margin: 0 auto;
+}
+a.closeBtn{
+	width: 24px;
+	height: 24px;
+	display: block;
+	background: #FF3333;
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	text-align: center;
+}
+a.closeBtn:hover{
+	background: #E62E2E;
+}
+a.closeBtn i.fa{
+	color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+    vertical-align: top;
+    margin: 5px auto;
+}
+a.closeBtn:hover i.fa{
+	color: #f1f1f1;
+}
+div.tipsBody{
+	width: 96%;
+	font-size: 14px;
+	color: #333;
+	margin: 0 auto;
+	padding: 15px 0 20px;	
+}
+div.tipsBody p{
+	line-height: 16px;
+	text-align: left;
+    margin: 0;
+    word-break: break-word;
+    text-align: center;	
+}
+div.tipsBtn{
+	width: 100%;
+	text-align: center;
+	font-size: 0;
+	text-align: center;
+}
+div.tipsBtn a.btn{
+	display: inline-block;
+	margin: 4px 2px;	
+}
+iframe#gpsBox{border:0;}
+/*选择框上三角形*/
+.smart-form .select i:before{
+	display: none !important;
+}
+.smart-form .select i:after{
+	bottom: 3px !important;
+}
+/*查看定位按钮*/
+a.location{
+    padding: 4px 10px !important;
+    margin: -6px 0 0 0 !important;	
+}
+/*支付方式显示*/
+span#payMode{
+	margin-bottom: 8px;
+    display: block;
+}
+/*文件上传*/
+.kv-main{padding:10px;}
+/*增加付款方式*/
+.payWays-table-box table.table{
+	width: 100%;
+	display: none;
+	margin: 0 auto;
+}
+.payWays-table-box table#table1{
+	display: table;
+}
+.addPrices label.label,.areaShow labrl.label{
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0;
+	height: 32px;
+	line-height: 32px;
+	vertical-align: top;	
+}
+section.areaShow{
+	margin: 5px 0;
+
+}
+.slectPayway,.areaShow select.choose{
+	height: 32px;
+	line-height: 30px;
+}
+.slectPayway input,.areaShow select.choose{
+	vertical-align: middle;
+    margin-right: 2px;
+}
+.slectPayway label{
+	line-height: 32px;
+    vertical-align: middle;	
+    margin-right: 6px;
+}
+/*添加弹窗*/
+.modal-title{font-weight: bold;}
+.modal-body label.label{
+    display: inline-block;
+    font-size: 13px;
+    width: 90px;
+    position: relative;
+}
+.modal-body label.input,.modal-body.allEditsBox label.select{
+	display: inline-block;
+	width: 309px;
+}
+
+.modal-body fieldset section.editSection{
+    text-align: left;
+    width: 399px;
+    font-size: 0;
+    margin: 0 auto 12px;	
+}
+.modal-body fieldset section.lenghtBox{
+	width: 139px;
+	display: inline-block;
+	margin-bottom: 0;
+}
+.modal-body fieldset section.widthBox,.modal-body fieldset section.heightBox{
+	width: 109px;
+	padding-left: 21px;
+	display: inline-block;
+	margin-bottom: 0;
+	text-align: right;
+}
+.modal-body fieldset section.widthBox label.label,.modal-body fieldset section.heightBox label.label{
+	width: 53px;
+}
+.modal-body fieldset section.widthBox label.input,.modal-body fieldset section.heightBox label.input,.modal-body fieldset section.lenghtBox label.input{
+	width: 49px;
+}
+.modal-body fieldset section.widthBox label.input input,.modal-body fieldset section.heightBox label.input input,.modal-body fieldset section.lenghtBox label.input input
+{padding: 6px;}
+label.second-category-selects{
+	    margin: 0 0 0 90px;
+}
+.modal-body section.editSection label.enableCheckboxs{
+	width: 100px;
+	display: inline-block;
+}
+.goodsCategory.modal-body label.label {
+	width: 104px;
+}
+.goodsCategory.modal-body label.input, .goodsCategory.modal-body label.select{
+	width: 295px;
+}
+.supplierEditBox.modal-body label.label,.customerEdit.modal-body label.label,.departmentEdit.modal-body label.label,.driverEdit.modal-body label.label{
+	width: 92px;
+}
+.supplierEditBox.modal-body label.input, .supplierEditBox.modal-body label.select,.customerEdit.modal-body label.input,.customerEdit.modal-body label.select,.departmentEdit.modal-body label.input,.driverEdit.modal-body label.input,.driverEdit.modal-body label.select{
+	width: 307px;
+}
+.supplierCategory.modal-body label.label,.customerCategory.modal-body label.label,.employeeEdit.modal-body label.label {
+	/* width: 68px; */
+	width: 73px;
+}
+.editSection label.select select{padding: 0 10px;}
+span.mustInput{
+	position: absolute;
+    left: -12px;
+    top: 2px;
+    color: #ff0000;
+}

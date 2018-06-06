@@ -87,4 +87,15 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         }
         return userDao.saveAll(users);
     }
+
+    /**
+     * 通过用户ID查询用户拥有的角色id
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public List<String> getRoleIds(String id) {
+        return userDao.getRoleIds(id);
+    }
 }

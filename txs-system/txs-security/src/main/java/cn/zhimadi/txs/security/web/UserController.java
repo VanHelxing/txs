@@ -1,18 +1,21 @@
 package cn.zhimadi.txs.security.web;
 
+import cn.zhimadi.txs.common.exception.CustomException;
 import cn.zhimadi.txs.common.search.DataTable;
 import cn.zhimadi.txs.common.search.SearchResponse;
+import cn.zhimadi.txs.common.util.StringUtils;
 import cn.zhimadi.txs.common.web.controller.BaseController;
 import cn.zhimadi.txs.security.dto.UserDTO;
+import cn.zhimadi.txs.security.entity.Role;
 import cn.zhimadi.txs.security.entity.User;
+import cn.zhimadi.txs.security.service.RoleService;
+import cn.zhimadi.txs.security.service.UserRoleService;
 import cn.zhimadi.txs.security.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,11 +28,15 @@ import java.util.Map;
  * @version : 1.0
  */
 @Controller
-@RequestMapping("system/security/user")
+@RequestMapping("security/user")
 public class UserController extends BaseController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private RoleService roleService;
+    @Autowired
+    private UserRoleService userRoleService;
 
 
     /**
@@ -51,7 +58,8 @@ public class UserController extends BaseController {
      * @param dataTable
      * @return
      */
-    @PostMapping("list")
+    @PostMapping("list.json")
+    @ResponseBody
     public Map<String, Object> query(DataTable dataTable){
         Map<String, Object> map = new HashMap<>();
         //根据dataTable查询数据记录
@@ -60,6 +68,7 @@ public class UserController extends BaseController {
         map.put(PARAM_RECORDS_TOTAL, searchResponse.getRecordsTotal());
         map.put(PARAM_RECORDS_FILTERED, searchResponse.getRecordsFiltered());
         map.put(PARAM_DATA, convert(searchResponse.getData()));
+
         return map;
     }
 
@@ -78,8 +87,91 @@ public class UserController extends BaseController {
         return dtos;
     }
 
+    /**
+     * 跳转数据添加页面
+     * @param model
+     * @return
+     */
+    @GetMapping("create")
+    public String create(Model model){
+        UserDTO dto = new UserDTO();
+        Map<String, String> roleMap = new HashMap<>();
+
+        List<Role> roles = roleService.findAll();
+        for (Role role : roles){
+            roleMap.put(role.getRoleId(), role.getRoleName());
+        }
+        model.addAttribute("roles", roleMap);
+
+        //设置dto对象到页面
+        model.addAttribute(PARAM_DTO, dto);
+        //设置页面实体参数(路径，消息，权限前缀)
+        addEntityParam(User.class, model);
+        return getEditPagePath(User.class, "system");
+    }
+
+    /**
+     * 跳转数据更新页面
+     * @param model
+     * @param id
+     * @return
+     */
+    @GetMapping("update")
+    public String update(Model model, @RequestParam("id") String id){
+        if (StringUtils.isEmpty(id)){
+            throw new CustomException("必须要传入id参数！");
+        }
+
+        UserDTO dto = new UserDTO();
+        User user = userService.findById(id);
+        BeanUtils.copyProperties(user, dto);
+        dto.setRoleIds(userService.getRoleIds(id));
+
+        //查询数据列表，返回给添加界面
+        Map<String, String> roleMap = new HashMap<>();
+        List<Role> roles = roleService.findAll();
+        for (Role role : roles){
+            roleMap.put(role.getRoleId(), role.getRoleName());
+        }
+        model.addAttribute("roles", roles);
+
+        //设置dto对象到页面
+        model.addAttribute(PARAM_DTO, dto);
+        //设置页面实体参数(路径，消息，权限前缀)
+        addEntityParam(User.class, model);
+        return getEditPagePath(User.class, "system");
+    }
 
 
+    /**
+     * 保存信息
+     * @param dto
+     */
+    @PostMapping("save")
+    public void save(UserDTO dto){
+        if (dto == null){
+            throw new CustomException("参数不能为空！");
+        }
+        User user = new User();
+
+        BeanUtils.copyProperties(dto, user);
+        if (dto.getEnable()){
+            user.setState(0);
+        }else {
+            user.setState(3);
+        }
+        boolean isCreate = true;
+        if (StringUtils.isEmpty(user.getId())){
+            User temp = userService.findByUserName(user.getUserName());
+            if (temp != null){
+                throw new CustomException("该用户名存在！");
+            }
+        }else {
+            isCreate = false;
+        }
+
+        userService.save(user);
+    }
 
 
 }

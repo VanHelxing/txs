@@ -2,17 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>用户</title>
-
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{resource/css/default.css}">
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/bootstrap.min.css}">
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/font-awesome.min.css}">
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/font-awesome.min.css}">
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/smartadmin-production-plugins.min.css}">
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/smartadmin-production.min.css}">
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/smartadmin-skins.min.css}">
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/smartadmin-rtl.min.css}">
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{resource/js/sobox/style.css}">
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{smart-admin/css/demo.min.css}">
 </head>
 <body>
     <div class="row">
@@ -114,7 +103,7 @@
         var pagefunction = function () {
 
             var selected = [];
-            // clears the variable if left blank
+            //clears the variable if left blank
             var table = $('#data-table').DataTable({
                 "columnDefs": [
                     {
@@ -143,8 +132,8 @@
                     {data: "id"},
                     {data: "userName"},
                     {data: "status"},
-                    {data: "createTime", searchable: false},
-                    {data: "lastmodifyTime", searchable: false},
+                    {data: "createDate", searchable: false},
+                    {data: "updateDate", searchable: false},
                 ],
                 "order": [
                     [2, 'asc']

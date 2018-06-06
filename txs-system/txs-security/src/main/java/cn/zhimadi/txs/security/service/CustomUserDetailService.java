@@ -2,6 +2,7 @@ package cn.zhimadi.txs.security.service;
 
 import cn.zhimadi.txs.security.entity.User;
 import cn.zhimadi.txs.security.pojo.SecurityUser;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

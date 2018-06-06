@@ -4,6 +4,8 @@ import cn.zhimadi.txs.common.dao.BaseDao;
 import cn.zhimadi.txs.security.entity.Role;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 /**
  * 角色持久类

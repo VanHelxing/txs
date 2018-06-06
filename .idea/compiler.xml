@@ -11,6 +11,11 @@
         <module name="txs-monitor" />
         <module name="txs-security" />
         <module name="txs-server" />
+        <module name="txscommon" />
+        <module name="txsdict" />
+        <module name="txsmonitor" />
+        <module name="txssecurity" />
+        <module name="txsserver" />
       </profile>
     </annotationProcessing>
   </component>

@@ -17,6 +17,12 @@ import javax.persistence.Table;
 public class Role extends BaseEntity {
 
     private static final long serialVersionUID = -540635253303026135L;
+
+    /**
+     * 角色ID
+     */
+    private String roleId;
+
     /**
      * 角色名称
      */

@@ -5,6 +5,7 @@ import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -21,6 +22,7 @@ import javax.persistence.Table;
 public class Log extends BaseEntity {
 
     private static final long serialVersionUID = -3400004761113672013L;
+
     /** 请求类型(system, api) */
     private String requestTpe;
 
@@ -31,6 +33,7 @@ public class Log extends BaseEntity {
     private String requestMethod;
 
     /** 请求数据 */
+    @Column(name = "request_data", length = 1000)
     private String requestData;
 
     /** 客户端地址 */

@@ -95,6 +95,18 @@ public class BaseController {
     }
 
     /**
+     * 获取Edit页面路径
+     *
+     * @param clazz  the clazz
+     * @param prefix the prefix
+     * @return the string
+     * @author : mingweigao / 2017-04-22
+     */
+    public static String getEditPagePath(Class clazz, String prefix) {
+        return getPagePath(clazz, prefix, "edit");
+    }
+
+    /**
      * 获取页面路径
      *
      * @param clazz  the clazz

@@ -71,6 +71,7 @@ public class LogInterceptor implements HandlerInterceptor {
             String requestData = JsonUtils.objectToJson(requestParam);
 
             log.setRequestData(requestData);
+            log.setState(0);
             log.setRequestMethod(handlerMethod.getMethod().getName());
             log.setResponseStatus(String.valueOf(response.getStatus()));
             log.setHandleTime(String.valueOf((endTime - beginTime)/ 1000));
