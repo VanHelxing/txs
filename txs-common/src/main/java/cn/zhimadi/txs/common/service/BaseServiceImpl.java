@@ -190,7 +190,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
      */
     @Override
     public T findById(String id) {
-        return (T) getDao().findById(id);
+        return getDao().findById(id).get();
     }
 
     /**

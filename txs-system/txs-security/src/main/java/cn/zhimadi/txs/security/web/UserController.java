@@ -148,6 +148,7 @@ public class UserController extends BaseController {
      * @param dto
      */
     @PostMapping("save")
+    @ResponseBody
     public void save(UserDTO dto){
         if (dto == null){
             throw new CustomException("参数不能为空！");

@@ -31,6 +31,6 @@ public interface UserDao extends BaseDao<User> {
      * @param id
      * @return
      */
-    @Query("select ur.role_id from txs_user_role ur where ur.user_id = :id")
+    @Query(value = "select ur.role_id from txs_user_role ur where ur.user_id =?1", nativeQuery = true)
     public List<String> getRoleIds(String id);
 }
