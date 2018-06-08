@@ -21,6 +21,13 @@ public interface UserService extends BaseService<User> {
     public User findByUserName(String userName);
 
     /**
+     * 更新用户信息
+     * @param user
+     * @return
+     */
+    public User update(User user);
+
+    /**
      * 通过用户ID查询用户拥有的角色id
      * @param id
      * @return

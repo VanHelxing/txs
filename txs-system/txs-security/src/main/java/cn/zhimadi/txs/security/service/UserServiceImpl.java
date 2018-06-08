@@ -58,6 +58,17 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     }
 
     /**
+     * 更新用户信息
+     *
+     * @param user
+     * @return
+     */
+    @Override
+    public User update(User user) {
+        return userDao.save(user);
+    }
+
+    /**
      * Save and flush t.
      *
      * @param entity the cn.zhimadi.txs.monitor.entity

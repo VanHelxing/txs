@@ -15,53 +15,58 @@
     <div class="modal-body no-padding">
 
         <form th:action="@{security/user/save}" id="data-form" method="post" th:object="${dto}" class="smart-form">
-            <!--<form:hidden path="salt"/>-->
-            <input type="hidden" path="salt">
-            <input id="id"  type="hidden" path="id">
-
-            <input id="createDate" type="hidden" path="createDate">
-            <input id="updateDate" type="hidden" path="updateDate">
+            <input id="id" type="hidden" name="id" th:value="*{id}">
+            <input id="createDate" type="hidden" name="createDate" th:value="*{createDate}">
+            <input id="updateDate" type="hidden" name="updateDate" th:value="*{updateDate}">
+            <input id="orgId" type="hidden" name="orgId" th:value="*{orgId}">
 
             <fieldset>
                 <section>
                     <label class="label">用户姓名</label>
                     <label class="input">
                         <i class="icon-prepend fa fa-user"></i>
-                        <input id="userName" th:value="*{userName}" type="text" placeholder=""/>
+                        <input id="userName" type="text" name="userName" th:value="*{userName}" placeholder=""/>
                         <b class="tooltip tooltip-bottom-right">请输入用户名</b>
-                    </label>
-                </section>
-
-                <section>
-                    <label class="label">用户密码</label>
-                    <label class="input">
-                        <i class="icon-prepend fa fa-lock"></i>
-                        <input th:value="*{password}" disabled="false" type="password"/>
-                        <b class="tooltip tooltip-bottom-right">请输入密码</b>
-                    </label>
-                </section>
-
-                <section>
-                    <label class="label">确认密码</label>
-                    <label class="input">
-                        <i class="icon-prepend fa fa-lock"></i>
-                        <input th:value="password" disabled="false" type="password"/>
-                        <b class="tooltip tooltip-bottom-right">再次输入密码 </b>
                     </label>
                 </section>
 
                 <section>
                     <label class="label">启用
                         <label class="checkbox">
-                            <input type="checkbox" path="enable">
-                            <i></i>启用</label></label>
+                            <input type="checkbox" name="state" th:value="*{state}">
+                            <i></i>是否启用</label></label>
                 </section>
 
                 <section>
                     <label class="label">用户角色</label>
-                    <div class="inline-group">
-                        <input type="checkboxs" path="roleIds" items="roles">
+                    <!-- widget div-->
+                    <div>
+                        <!-- widget content -->
+                        <div class="widget-body no-padding">
+
+                            <table
+                                   class="display table table-striped table-bordered table-hover"
+                                   cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>角色名称</th>
+                                    <th>角色编号</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="role,roleStat:${roles}">
+                                        <td th:text="${roleStat.index} + 1"></td>
+                                        <td th:text="${role.roleName}"></td>
+                                        <td th:text="${role.roleId}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <!-- end widget content -->
                     </div>
+                    <!-- end widget div -->
                 </section>
             </fieldset>
         </form>

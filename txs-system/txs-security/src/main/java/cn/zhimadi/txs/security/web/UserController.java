@@ -156,22 +156,19 @@ public class UserController extends BaseController {
         User user = new User();
 
         BeanUtils.copyProperties(dto, user);
-        if (dto.getEnable()){
-            user.setState(0);
-        }else {
-            user.setState(3);
-        }
+
         boolean isCreate = true;
         if (StringUtils.isEmpty(user.getId())){
             User temp = userService.findByUserName(user.getUserName());
             if (temp != null){
                 throw new CustomException("该用户名存在！");
             }
+            userService.save(user);
         }else {
             isCreate = false;
+            userService.update(user);
         }
 
-        userService.save(user);
     }
 
 
