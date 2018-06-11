@@ -33,13 +33,21 @@ public class BaseDTO implements Serializable {
     private String status;
 
     /**
+     * 版本号
+     */
+    private Long version;
+
+    /**
      * 是否启用
      */
     protected Integer state;
+
     /**
      * 是否启用
      */
     private Boolean enable;
+
+    private Boolean isNew;
 
     protected Boolean enable() {
         return getState() == 0;
@@ -52,4 +60,5 @@ public class BaseDTO implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
+
 }

@@ -1,10 +1,13 @@
 package cn.zhimadi.txs.common.exception;
 
+import lombok.Data;
+
 /**
  * 自定义异常
  * @author : yangjunqing / yangjunqing@zhimadi.cn
  * @version : 1.0
  */
+@Data
 public class CustomException extends RuntimeException {
 
     private static final long serialVersionUID = 5301233893782305510L;

@@ -19,8 +19,12 @@ function createFunction(modal, url) {
  * @param id
  */
 function updateFunction(modal, url, id) {
-    if (id.length == 0 || id.length > 1) {
-        $.sobox.alert(strings['common.dialog.title'], strings['common.dialog.update.tip']);
+    if (id.length == 0) {
+        $.sobox.alert('系统提示', '请至少选择一条记录！');
+        return;
+    }
+    if (id.length > 1) {
+        $.sobox.alert('系统提示', '每次只能编辑一条记录！');
         return;
     }
     url = url.concat("?id=").concat(id.valueOf().toString());
@@ -40,13 +44,13 @@ function updateFunction(modal, url, id) {
  */
 function deleteFunction(modal,url,ids) {
     if (ids.length == 0) {
-        $.sobox.alert(strings['common.dialog.title'], strings['common.dialog.select.tip']);
+        $.sobox.alert('系统提示', '请至少选择一条记录！');
         return;
     }
-    $.sobox.confirm(strings['common.dialog.title'], strings['common.dialog.delete.tip'], function () {
+    $.sobox.confirm('系统提示', '确定要删除所选记录？', function () {
         $.post(url, {ids: ids.valueOf().toString()}, function (obj) { //回传函数
             var data = jQuery.parseJSON(obj);
-            $.sobox.alert(strings['common.dialog.title'], data.message, function () {
+            $.sobox.alert('系统提示', data.message, function () {
                 if (data.success) {
                     window.location.reload();
                 }
@@ -65,9 +69,9 @@ function ajaxSave(options) {
         modalId: "#modal",
     }, options);
     $(save.formId).ajaxSubmit(function (resultJson) {
-        var data = JSON.parse(resultJson);
+        // var data = JSON.parse(resultJson);
         modalToggle(save.modalId);
-        message(data);
+        message(resultJson);
     });
 }
 /**
@@ -116,7 +120,7 @@ function message(data) {
             }
         });
     } else {
-        $.sobox.alert(strings['common.dialog.title'], data.message);
+        $.sobox.alert('系统提示', data.message);
     }
 }
 

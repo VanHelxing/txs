@@ -1,6 +1,7 @@
 package cn.zhimadi.txs.security.web;
 
 import cn.zhimadi.txs.common.exception.CustomException;
+import cn.zhimadi.txs.common.pojo.ResponseData;
 import cn.zhimadi.txs.common.search.DataTable;
 import cn.zhimadi.txs.common.search.SearchResponse;
 import cn.zhimadi.txs.common.util.StringUtils;
@@ -58,7 +59,7 @@ public class UserController extends BaseController {
      * @param dataTable
      * @return
      */
-    @PostMapping("list.json")
+    @PostMapping("list")
     @ResponseBody
     public Map<String, Object> query(DataTable dataTable){
         Map<String, Object> map = new HashMap<>();
@@ -68,7 +69,6 @@ public class UserController extends BaseController {
         map.put(PARAM_RECORDS_TOTAL, searchResponse.getRecordsTotal());
         map.put(PARAM_RECORDS_FILTERED, searchResponse.getRecordsFiltered());
         map.put(PARAM_DATA, convert(searchResponse.getData()));
-
         return map;
     }
 
@@ -95,13 +95,11 @@ public class UserController extends BaseController {
     @GetMapping("create")
     public String create(Model model){
         UserDTO dto = new UserDTO();
-        Map<String, String> roleMap = new HashMap<>();
+        //新增
+        dto.setIsNew(true);
 
         List<Role> roles = roleService.findAll();
-        for (Role role : roles){
-            roleMap.put(role.getRoleId(), role.getRoleName());
-        }
-        model.addAttribute("roles", roleMap);
+        model.addAttribute("roles", roles);
 
         //设置dto对象到页面
         model.addAttribute(PARAM_DTO, dto);
@@ -123,16 +121,14 @@ public class UserController extends BaseController {
         }
 
         UserDTO dto = new UserDTO();
+        //更新
+        dto.setIsNew(false);
         User user = userService.findById(id);
         BeanUtils.copyProperties(user, dto);
         dto.setRoleIds(userService.getRoleIds(id));
 
         //查询数据列表，返回给添加界面
-        Map<String, String> roleMap = new HashMap<>();
         List<Role> roles = roleService.findAll();
-        for (Role role : roles){
-            roleMap.put(role.getRoleId(), role.getRoleName());
-        }
         model.addAttribute("roles", roles);
 
         //设置dto对象到页面
@@ -144,32 +140,36 @@ public class UserController extends BaseController {
 
 
     /**
-     * 保存信息
+     * 保存
      * @param dto
+     * @return
      */
     @PostMapping("save")
     @ResponseBody
-    public void save(UserDTO dto){
-        if (dto == null){
-            throw new CustomException("参数不能为空！");
-        }
-        User user = new User();
+    public ResponseData save(UserDTO dto) {
 
+        User user = new User();
         BeanUtils.copyProperties(dto, user);
 
-        boolean isCreate = true;
-        if (StringUtils.isEmpty(user.getId())){
+        if (dto.getEnable()){
+            user.setState(0);
+        }else {
+            user.setState(1);
+        }
+
+        //新增
+        if (StringUtils.isEmpty(user.getId())) {
             User temp = userService.findByUserName(user.getUserName());
-            if (temp != null){
-                throw new CustomException("该用户名存在！");
+            if (temp != null) {
+                throw new CustomException("该用户名已存在!");
             }
             userService.save(user);
-        }else {
-            isCreate = false;
+        }
+        //修改
+        else {
             userService.update(user);
         }
 
+        return ResponseData.ok();
     }
-
-
 }

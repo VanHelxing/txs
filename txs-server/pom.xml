@@ -41,6 +41,7 @@
             <artifactId>thymeleaf-extras-springsecurity4</artifactId>
             <version>3.0.2.RELEASE</version>
         </dependency>
+
     </dependencies>
 
 
@@ -54,6 +55,7 @@
                     <!-- 指定该Main Class为全局的唯一入口 -->
                     <mainClass>cn.zhimadi.txs.TxsServerApplication</mainClass>
                     <layout>ZIP</layout>
+                    <fork>true</fork>
                 </configuration>
                 <executions>
                     <execution>

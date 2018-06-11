@@ -9,7 +9,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
             &times;
         </button>
-        <h4 class="modal-title" id="myModalLabel">用户信息修改</h4>
+        <h4 class="modal-title" id="myModalLabel">用户信息编辑</h4>
     </div>
 
     <div class="modal-body no-padding">
@@ -19,6 +19,7 @@
             <input id="createDate" type="hidden" name="createDate" th:value="*{createDate}">
             <input id="updateDate" type="hidden" name="updateDate" th:value="*{updateDate}">
             <input id="orgId" type="hidden" name="orgId" th:value="*{orgId}">
+            <input id="version" type="hidden" name="version" th:value="*{version}">
 
             <fieldset>
                 <section>
@@ -31,9 +32,29 @@
                 </section>
 
                 <section>
+                    <label class="label">密码</label>
+                    <label class="input">
+                        <i class="icon-prepend fa fa-lock"></i>
+                        <input id="password" type="password" name="password" th:if="*{isNew}"/>
+                        <input id="password" type="password" name="password" disabled th:value="*{password}" th:unless="*{isNew}"/>
+                        <b class="tooltip tooltip-bottom-right">请输入密码</b>
+                    </label>
+                </section>
+
+                <section>
+                    <label class="label">确认密码</label>
+                    <label class="input">
+                        <i class="icon-prepend fa fa-lock"></i>
+                        <input type="password" name="confirmPassword" th:if="*{isNew}"/>
+                        <input type="password" name="confirmPassword" disabled th:value="*{password}" th:unless="*{isNew}"/>
+                        <b class="tooltip tooltip-bottom-right">请再次输入密码</b>
+                    </label>
+                </section>
+
+                <section>
                     <label class="label">启用
                         <label class="checkbox">
-                            <input type="checkbox" name="state" th:value="*{state}">
+                            <input type="checkbox" name="enable">
                             <i></i>是否启用</label></label>
                 </section>
 

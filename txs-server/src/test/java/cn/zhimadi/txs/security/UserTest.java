@@ -31,4 +31,13 @@ public class UserTest {
         user1.setOrgId("00000");
         userService.save(user1);
     }
+
+    @Test
+    public void update(){
+        User user = new User();
+        user.setId("1004190591841755136");
+        user.setUserName("update");
+        user.setVersion(0l);
+        userService.update(user);
+    }
 }

@@ -2,16 +2,17 @@
 <!--suppress ALL -->
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>用户</title>
+    <title>用户列表</title>
 </head>
 <body>
     <div class="row">
         <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
             <h1 class="page-title txt-color-blueDark">
                 <i class="fa fa-lg fa-fw fa-home"></i>
-                <span th:text="${moduleName}"></span>
-                <span th:text="${entityMessage}"></span>
-                <span th:text="${entityMessage}"></span>
+                <!--<span th:text="${moduleName}"></span>-->
+                <!--<span th:text="${entityMessage}"></span>-->
+                <!--<span th:text="${entityMessage}"></span>-->
+                <span>权限管理>用户管理>用户列表</span>
             </h1>
         </div>
     </div>
@@ -122,7 +123,7 @@
                 "sPaginationType": "full_numbers",
                 "serverSide": true,
                 "ajax": {
-                    "url": /*[[@{security/user/list.json}]]*/,
+                    "url": /*[[@{security/user/list}]]*/,
                     "type": "POST",
                 },
 
@@ -232,9 +233,9 @@
                         $(element).addClass('valid');
                     },
                     rules: {
-                        username: {
+                        userName: {
                             required: true,
-                            minlength: 4
+                            minlength: 1
                         },
                         password: {
                             required: true,
@@ -243,21 +244,21 @@
                         confirmPassword: {
                             required: true,
                             minlength: 6,
-                            equalTo: '#password'
+                            equalTo: "#password"
                         }
                     },
                     messages: {
-                        username: {
-                            required: '<spring:message code="security.user.username.valid.null"/>',
-                            minlength: '<spring:message code="security.user.username.valid.length"/>'
+                        userName: {
+                            required: '用户名不能为空!',
+                            minlength: '用户名长度至少为1位!'
                         },
                         password: {
-                            required: '<spring:message code="security.user.password.valid.null"/>',
-                            minlength: '<spring:message code="security.user.password.valid.length"/>'
+                            required: '用户密码不能为空!',
+                            minlength: '用户密码长度至少为6位!'
                         },
                         confirmPassword: {
-                            required: '<spring:message code="security.user.confirmPassword.valid.null"/>',
-                            equalTo: '<spring:message code="security.user.confirmPassword.valid.equal"/>'
+                            required: '请再一次输入密码!',
+                            equalTo: '两次密码不相同!'
                         }
                     },
                     // Do not change code below
