@@ -140,6 +140,22 @@ public class UserController extends BaseController {
 
 
     /**
+     * 删除
+     * @param ids
+     * @return
+     */
+    @PostMapping("delete")
+    @ResponseBody
+    public ResponseData delete(String ids){
+        //根据id数组查询对象列表
+        Iterable<User> list = userService.findAll(StringUtils.splitToString(ids, ","));
+        //删除对象列表
+        userService.deleteInBatch(list);
+        return ResponseData.ok();
+    }
+
+
+    /**
      * 保存
      * @param dto
      * @return

@@ -22,7 +22,7 @@ public interface BaseService<T> {
     /**
      * for datatables
      *
-     * @param dataTable
+     * @param dataTable the data table
      * @param clazz     the clazz
      * @return data table response
      * @author : mingweigao / 2017-04-04
@@ -162,6 +162,15 @@ public interface BaseService<T> {
      * @author : yangjunqing / 2018-06-01
      */
     void deleteAll();
+
+
+    /**
+     * Delete in batch.
+     *
+     * @param iterable the iterable
+     * @author : yangjunqing / 2018-06-12
+     */
+    void deleteInBatch(Iterable<T> iterable);
 
     /**
      * Count long.

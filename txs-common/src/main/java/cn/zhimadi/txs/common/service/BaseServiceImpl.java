@@ -216,6 +216,17 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
     }
 
     /**
+     * Delete in batch.
+     *
+     * @param iterable the iterable
+     * @author : yangjunqing / 2018-06-12
+     */
+    @Override
+    public void deleteInBatch(Iterable<T> iterable) {
+        getDao().deleteInBatch(iterable);
+    }
+
+    /**
      * Delete all.
      *
      * @author : yangjunqing / 2018-06-01

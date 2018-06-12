@@ -1,35 +1,30 @@
-package cn.zhimadi.txs.security.entity;
+package cn.zhimadi.txs.security.dto;
 
 import lombok.Data;
 
-
 /**
- * 会话信息
+ * 会话交互对象
  * @author : yangjunqing / yangjunqing@zhimadi.cn
  * @version : 1.0
  */
 @Data
-public class Session {
+public class SessionDTO {
 
-    /** 会话ID */
+    /** 会话编号 */
     private String id;
 
     /** 用户编号 */
     private String userId;
 
-    /** 用户姓名 */
+    /** 用户名称 */
     private String userName;
 
-    /** 用户主机IP */
+    /** 用户IP */
     private String remoteIp;
 
-    /** 用户主机名称 */
+    /** 用户主机名 */
     private String remoteName;
-
-    /** 剩余过期时间(单位/秒) */
-    private Long expireTime;
 
     /** 机构 */
     private String orgId;
-
 }

@@ -121,6 +121,25 @@ public class StringUtils {
         return splitWorker(str, separatorChars, -1, false);
     }
 
+
+    /**
+     * 将所给字符串按所给的seperator split成list
+     * @param str
+     * @param seperator
+     * @return
+     */
+    public static ArrayList<String> splitToString(String str, String seperator) {
+        String[] strArray = str.split(seperator);
+        ArrayList<String> list = new ArrayList<String>();
+        String[] result = new String[strArray.length];
+        for (int i = 0; i < result.length; i++) {
+            if (!isEmpty(strArray[i])) {
+                list.add(strArray[i]);
+            }
+        }
+        return list;
+    }
+
     /**
      * 分离
      * @param str

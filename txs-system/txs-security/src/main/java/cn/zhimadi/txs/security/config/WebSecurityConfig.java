@@ -26,7 +26,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-@EnableRedisHttpSession
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 1800)//默认过期时间30分钟
 //@EnableGlobalMethodSecurity  //开启方法级别安全@Secured @PreAuthorize / @PostAuthorize
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -98,9 +98,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMeServices(rememberMeServices())
                 .key("INTERNAL_SECRET_KEY")
             .and()
-                .sessionManagement().maximumSessions(1).expiredUrl("/login?expire")
-                .sessionRegistry(sessionRegistry());
-
+                .sessionManagement().invalidSessionUrl("/login").maximumSessions(1).expiredUrl("/login").sessionRegistry(sessionRegistry());
         //解决不允许显示在iframe的问题
         http.headers().frameOptions().disable();
 

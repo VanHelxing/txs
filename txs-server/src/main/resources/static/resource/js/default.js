@@ -48,8 +48,8 @@ function deleteFunction(modal,url,ids) {
         return;
     }
     $.sobox.confirm('系统提示', '确定要删除所选记录？', function () {
-        $.post(url, {ids: ids.valueOf().toString()}, function (obj) { //回传函数
-            var data = jQuery.parseJSON(obj);
+        $.post(url, {ids: ids.valueOf().toString()}, function (data) { //回传函数
+            // var data = jQuery.parseJSON(obj);
             $.sobox.alert('系统提示', data.message, function () {
                 if (data.success) {
                     window.location.reload();
@@ -60,6 +60,32 @@ function deleteFunction(modal,url,ids) {
     }, function () {
     });
 }
+
+
+/**
+ * 提出
+ * @param options
+ */
+function forceoutFunction(modal,url,ids) {
+    if (ids.length == 0) {
+        $.sobox.alert('系统提示', '请至少选择一条用户！');
+        return;
+    }
+    $.sobox.confirm('系统提示', '确定要强制下线所选用户？', function () {
+        $.post(url, {ids: ids.valueOf().toString()}, function (obj) { //回传函数
+            // var data = jQuery.parseJSON(obj);
+            $.sobox.alert('系统提示', obj.message, function () {
+                if (obj.success) {
+                    window.location.reload();
+                }
+            });
+
+        });
+    }, function () {
+    });
+}
+
+
 /**
  * 表单异步提交方法
  */
